@@ -21,10 +21,16 @@ map<utility::string_t, utility::string_t> dictionary;
 class com
 {
 public:
-	com();
+	com(void(*massege_handler)(json::object));
 	~com();
 	void lisetn();
 
 private:
-	http_listener listener(L"http://localhost/restdemo");
+	void(*massege_handler)(json::object);
+	void display_json(
+		json::value const & jvalue,
+		utility::string_t const & prefix);
+	void handle_request(
+		http_request request,
+		function<void(json::value const &, json::value &)> action)
 };
