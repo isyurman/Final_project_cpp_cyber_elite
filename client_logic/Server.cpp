@@ -70,3 +70,20 @@ Server::Server()
 Server::~Server()
 {
 }
+
+void Server::updateUsersListFromServer()
+{
+	m_userList.clear();
+	m_userList.emplace("Yechiel");
+	m_userList.emplace("Mord");
+	m_userList.emplace("Israel");
+	m_userList.emplace("Izik");
+	m_userList.emplace("Alex");
+	m_userList.emplace("Yosef");
+}
+
+set<string> Server::getAllUsers()
+{
+	updateUsersListFromServer();
+	return m_userList;
+}
