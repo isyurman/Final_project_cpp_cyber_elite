@@ -23,7 +23,10 @@ namespace CyberServer{
 		bool setName(const std::string u);
 		bool setIP(const std::string u);
 		bool compareUser(const User u) const; 
-		bool compareUserbyStringandIP(const std::string u, const std::string ip) const;
+		bool compareUserbyStringandIP(const std::string u) const;
 		bool printDetails() const;
+		friend ostream& operator<<(ostream& os, const User& dt);
+		friend bool operator==(const User& d1, const User& d2);
+		void operator=(User& d1);
 	};
 }
