@@ -196,4 +196,73 @@ namespace CyberServer
 
 	}
 
+	void Server::checkOpCode(web::json::value obj)
+	{
+			switch (obj.get(L"Opcode").as_integer())
+			{
+			case 1:
+				opcode1(obj);
+				break;
+
+			case 2:
+				opcode2(obj);
+				break;
+			case 3:
+				opcode3(obj);
+				break;
+			case 4:
+				opcode4(obj);
+				break;
+			case 5:
+				opcode5(obj);
+				break;
+			case 6:
+				opcode6(obj);
+				break;
+			case 7:
+				opcode7(obj);
+				break;
+			default:
+				// value was NULL no opcode
+				break;
+			}
+		//web::json::value obj1;
+		//obj1[L"Opcode"] = web::json::value::number(1);
+		
+		
+	}
+
+	void Server::opcode1(web::json::value obj)
+	{
+	}
+
+	void Server::opcode2(web::json::value obj)
+	{
+	}
+
+	void Server::opcode3(web::json::value obj)
+	{
+	}
+
+	void Server::opcode4(web::json::value obj)
+	{
+	}
+
+	void Server::opcode5(web::json::value obj)
+	{
+	}
+
+	void Server::opcode6(web::json::value obj)
+	{
+
+	}
+
+	void Server::opcode7(web::json::value obj)
+	{
+	}
+
+	void Server::opcode8(web::json::value obj)
+	{
+	}
+
 }
