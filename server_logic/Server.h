@@ -40,6 +40,21 @@ namespace CyberServer
 		bool LogOutUser(std::string);
 		bool LogOutUser(User *);
 
+		void start(void);
+		
+		void checkOpCode(/*Json*/);
+		
+#pragma region API Function
+		void opcode1(/*Json*/);
+		void opcode2(/*Json*/);
+		void opcode3(/*Json*/);
+		void opcode4(/*Json*/);
+		void opcode5(/*Json*/);
+		void opcode6(/*Json*/);
+		void opcode7(/*Json*/);
+		void opcode8(/*Json*/);
+#pragma endregion
+
 	};
 
 }

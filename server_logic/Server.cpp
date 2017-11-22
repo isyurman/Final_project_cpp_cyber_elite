@@ -186,4 +186,14 @@ namespace CyberServer
 		return false;
 	}
 
+	void Server::start(void)
+	{
+		//Subscribe fucntions
+		//listen(handle_function& func(jsonObject))
+		//start listener.start()
+
+		//to send message: send(jsonObject, ip)
+
+	}
+
 }
