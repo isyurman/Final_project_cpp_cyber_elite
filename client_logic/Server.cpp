@@ -1,6 +1,22 @@
 #include "Server.h"
 
+void Server::getMessageHandler(/*json::object*/)
+{
+	//logic ot user and messege
 
+
+	std::string user, messege;
+
+	/*"Opcode" "1"
+	user = "Username" 
+	messege "Message"*/
+
+	
+	if (!m_user.isBanedUser(user))
+	{
+		m_usersNewMessages[ user ].push(messege);
+	}
+}
 
 bool Server::connectServer(string serverName, int port)
 {
@@ -10,6 +26,7 @@ bool Server::connectServer(string serverName, int port)
 		m_serverName = serverName;
 		m_port = port;
 		return true;
+		//listen(handle_function& func(json::object))
 	}
 	else
 		return false;
@@ -29,11 +46,16 @@ void Server::SendMessage(const std::string userName, const std::string message) 
 	//TODO
 	if (userName == "")//send to all
 	{
-
+		/*"Opcode" "2"
+		"Username" m_user.getName()
+		"Message" message */
 	}
 	else
 	{
-
+		/*"Opcode" "1"
+		"Username" m_user.getName()
+			"Message" message
+			"to" userName */
 	}
 }
 
@@ -86,4 +108,14 @@ set<string> Server::getAllUsers()
 {
 	updateUsersListFromServer();
 	return m_userList;
+}
+
+void Server::setUser(std::string userName)
+{
+	m_user.setName(userName);
+}
+
+user Server::getUser()
+{
+	return m_user;
 }

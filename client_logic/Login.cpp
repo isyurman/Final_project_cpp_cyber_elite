@@ -9,11 +9,6 @@ Server Login::getServer()
 	return m_server;
 }
 
-user Login::getUser()
-{
-	return m_me;
-}
-
 Login::Login()
 {
 	string serverName, userName;
@@ -27,7 +22,12 @@ Login::Login()
 		cout << "please enter server name" << endl;
 		cin >> serverName;
 		cout << "port:" << endl;
-		cin >> port;
+		while (!(cin >> port))
+		{
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout << "Invalid input.  Try again: " << endl;
+		}
 		if (m_server.connectServer(serverName, port))
 		{
 			connected = true;
@@ -44,9 +44,9 @@ Login::Login()
 		cin >> userName;
 		if (m_server.login(userName))
 		{
-			m_me.setName(userName);
+			m_server.setUser(userName);
 			system("cls");
-			cout << "logged in as " << m_me.getName() << endl;
+			cout << "logged in as " << m_server.getUser().getName() << endl;
 			loggedIn = true;
 		}
 		else
