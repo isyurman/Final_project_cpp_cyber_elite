@@ -8,6 +8,8 @@ private:
 	Server m_server;
 
 public:
+	Server getServer();
+	user getUser();
 	Login();
 	~Login();
 };

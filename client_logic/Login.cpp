@@ -4,6 +4,16 @@ using namespace std;
 
 
 
+Server Login::getServer()
+{
+	return m_server;
+}
+
+user Login::getUser()
+{
+	return m_me;
+}
+
 Login::Login()
 {
 	string serverName, userName;
@@ -32,7 +42,17 @@ Login::Login()
 	{
 		cout << "user name:" << endl;
 		cin >> userName;
-		//if (m_server.connectServer(serverName, port))
+		if (m_server.login(userName))
+		{
+			m_me.setName(userName);
+			system("cls");
+			cout << "logged in as " << m_me.getName() << endl;
+			loggedIn = true;
+		}
+		else
+		{
+			cout << "user already exists" << endl;
+		}
 	}
 
 

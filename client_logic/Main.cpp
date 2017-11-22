@@ -1,10 +1,14 @@
 #include <iostream>
 
-#include "user.h"
+#include "Login.h"
+#include "MessageManger.h"
 
 using namespace std;
 
 void main()
 {
-	user me = user("maass");
+	Login login;
+	MessageManger myMessageManger;
+
+	
 }
