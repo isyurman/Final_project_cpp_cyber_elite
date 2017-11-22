@@ -58,16 +58,29 @@ namespace CyberServer {
 	{
 		bool same = true;
 		if (banned == u.isBanned())
-			same = (username.compare(u.getName()) && ipAdress.compare(u.getIP()));
+			same = username.compare(u.getName());
 		return !same;
 	}
-	bool User::compareUserbyStringandIP(const std::string u, const std::string ip) const
+	bool User::compareUserbyStringandIP(const std::string u) const
 	{
-		return !(username.compare(u) && ipAdress.compare(ip));
+		return !(username.compare(u));
 	}
 	bool User::printDetails() const
 	{
 		cout << "Username: " << username << endl << "Ip Adress: " << ipAdress << endl << "Currently banned: " << banned << endl;
 		return true;
+	}
+	void User::operator=(User & d1)
+	{
+		User(d1.getName(), d1.getIP());
+	}
+	ostream & operator<<(ostream & os, const User & dt)
+	{
+		dt.printDetails();
+		return os;
+	}
+	bool operator==(const User & d1, const User & d2)
+	{
+		return d1.compareUser(d2);
 	}
 }
