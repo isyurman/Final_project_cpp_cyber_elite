@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{BC4B185E-0B89-4829-AAD0-9E039A4060E6}</ProjectGuid>
+    <ProjectGuid>{BC53185B-3669-4244-991C-3708BD813935}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>client_com</RootNamespace>
+    <RootNamespace>server_com</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -142,6 +142,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="com.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="com.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
