@@ -1,11 +1,14 @@
 #pragma once
 #include <cpprest/http_listener.h>
+#include <cpprest/http_client.h>
 #include <cpprest/json.h>
-#pragma comment(lib, "cpprest110_1_1")
+
+//#pragma comment(lib, "cpprest140d_2_9")
 
 using namespace web;
 using namespace web::http;
 using namespace web::http::experimental::listener;
+using namespace web::http::client;
 
 #include <iostream>
 #include <map>
@@ -21,16 +24,17 @@ map<utility::string_t, utility::string_t> dictionary;
 class com
 {
 public:
-	com(void(*massege_handler)(json::object));
+	com(void(*massege_handler)(json::value));
 	~com();
 	void lisetn();
-
+	void send(json::value, wstring ip);
 private:
-	void(*massege_handler)(json::object);
-	void display_json(
-		json::value const & jvalue,
-		utility::string_t const & prefix);
-	void handle_request(
-		http_request request,
-		function<void(json::value const &, json::value &)> action)
+	void(*massege_handler)(json::value);
+
 };
+
+int main()
+{
+
+	return 0;
+}
